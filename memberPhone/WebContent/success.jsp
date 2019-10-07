@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>注册成功</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<script src="js/rem.js"></script>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+		<script src="js/jquery.SuperSlide.2.1.js" type="text/javascript"></script>
+		<script src="js/hmt.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/pages.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+	</head>
+	
+	<body style="background-color: #fff;">
+		<!--header star-->
+		<div class="nheader nheadertwo clearfloat box-s" id="header">
+			<a href="javascript:history.go(-1)" class="fl">
+				<i class="iconfont icon-fanhui"></i>
+			</a>
+			<p class="fl">
+				注册
+			</p>
+			<a href="sign.html" class="fr">
+				登录
+			</a>
+		</div>
+		<!--header end-->
+		
+		<!--register star-->
+		<div class="register clearfloat" id="main">
+			<div class="reg-top clearfloat box-s">
+				<div class="top clearfix">
+					<samp class="line db"></samp>
+					<samp class="curline db"></samp>
+					<ul>
+						<li class="fl">
+							<div class="shu cur clearfix box-s">
+								<span class="cur">
+									1
+								</span>
+							</div>
+							<p class="cur">注册账号</p>
+						</li>
+						<li class="fl">
+							<div class="shu cur clearfix box-s">
+								<span class="cur">
+									2
+								</span>
+							</div>
+							<p class="cur">信息填写</p>
+						</li>
+						<li class="fl">
+							<div class="shu clearfix box-s">
+								<span>
+									3
+								</span>
+							</div>
+							<p>用户登录</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<span class="huibg"></span>
+			<div class="success clearfloat">
+				<img src="img/que2.png"/>
+				<p class="bt">恭喜您，注册成功！</p>
+				<p class="nr">5 秒后自动跳转到登录页</p>
+			</div>
+		</div>
+		<!--register end-->
+	</body>
+</html>

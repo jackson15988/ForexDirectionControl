@@ -2326,7 +2326,9 @@ textarea {
 }
 
 select {
-	margin-top: 1px;
+	
+	margin-left: 20px;
+	margin-top: 4px;
 	height: auto;
 	font-size: inherit;
 	background-color: #fff;

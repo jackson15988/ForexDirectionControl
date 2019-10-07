@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+	String isLogin = request.getSession().getAttribute("isLgoin") == null
+			? ""
+			: request.getSession().getAttribute("isLgoin").toString();
+	String phoneNumber = request.getSession().getAttribute("Account") == null
+			? ""
+			: request.getSession().getAttribute("Account").toString();
+	String permissionLogin = request.getSession().getAttribute("permissionLogin") == null
+			? ""
+			: request.getSession().getAttribute("permissionLogin").toString();
+	String mt4Account = request.getSession().getAttribute("mt4Account") == null
+			? ""
+			: request.getSession().getAttribute("mt4Account").toString();
+	if (isLogin.equals("Y") && permissionLogin.equals("Y")) {
+		if ("DefaultAccount".equals(mt4Account)) {
+			response.sendRedirect("accountCenter.jsp");
+		}else{
+			System.out.print("取得的帳號:" + mt4Account);
+		}
+	} else {
+		response.sendRedirect("login.jsp");
+	}
+%>
+
 <html lang="zh-CN">
 
 <head>
@@ -77,11 +102,11 @@
 <body>
 	<!--header star-->
 	<div class="nheader nheadertwo clearfloat box-s" id="header">
-		<a href="" class="fl"> <i class="fa fa-home fa-fw"></i>
+		<a href="accountCenter.jsp" class="fl"> <i class="fa fa-home fa-fw"></i>
 
 		</a>
 		<p class="fl">戰情中心</p>
-		<a href="register.html" class="fr"> 登出 </a>
+		<a href="logout" class="fr"> 登出 </a>
 	</div>
 	<!--header end-->
 
@@ -224,6 +249,7 @@
 	});
 
 	window.onload = function() {
+	
 		loadingData();
 	}
 
@@ -231,7 +257,7 @@
 		$("#butdiv").empty();
 
 		var user = {
-			"mt4Account" : "2090388471",
+			'mt4Account':'<%=mt4Account%>',
 			"industry" : 1,
 			"corporation" : "hust"
 		};
@@ -290,7 +316,8 @@
 
 	function direction(key) {
 		var user = {
-			"mt4Account" : "2090388471",
+		
+			"mt4Account":'<%=mt4Account%>',
 			"direction" : key,
 			"corporation" : "hust"
 		};
@@ -301,17 +328,16 @@
 			contentType : "application/json",
 			data : JSON.stringify(user),
 			success : function(data) {
-			
 
-				  Dialog.init('<img src="dist/load3.gif" width="48px"/>',{
-					    mask : 0,
-					    addClass : 'dialog_load',
-					    time : 5,
-					    after : function(){
-					        Dialog.init('設定成功！',500);
-					    }
-					});
-				   
+				Dialog.init('<img src="dist/load3.gif" width="48px"/>', {
+					mask : 0,
+					addClass : 'dialog_load',
+					time : 5,
+					after : function() {
+						Dialog.init('設定成功！', 500);
+					}
+				});
+
 				var keyC = key.substring(0, key.length - 2);
 				if (key.indexOf(1) > 0) {
 					$(".statusImagnes_" + keyC + "").attr("src",
