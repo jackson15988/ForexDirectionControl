@@ -10,7 +10,7 @@
 		System.out.print("有效登入");
 	} else {
 		System.out.print("無效登入");
-		response.sendRedirect("register.jsp");
+		response.sendRedirect("login.jsp");
 	}
 %>
 
@@ -36,10 +36,9 @@
 	<div></div>
 	<!--header star-->
 	<div class="nheader nheadertwo clearfloat box-s" id="header">
-		<a href="javascript:history.go(-1)" class="fl"> <i
-			class="iconfont icon-fanhui"></i>
+		<a href="javascript:history.go(-1)" class="fl">返回
 		</a>
-		<p class="fl">注册</p>
+		<p class="fl">設定登入密碼</p>
 		<a href="sign.html" class="fr"> 登录 </a>
 	</div>
 	<!--header end-->

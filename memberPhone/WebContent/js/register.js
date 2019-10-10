@@ -2,6 +2,15 @@
 function getVerificationCode() {
 
 	var phonenumber = $('#phoneNumber').val();
+	
+	if(phonenumber == ""){
+		    Dialog.init('手機號碼不得為空',{
+		        title : 'Error',
+		        style : 'color:red;font-weight: bold;font-size:10px'
+		    });
+		
+		return;
+	}
 	var user = {
 		"phonenumber" : phonenumber
 	};
@@ -14,11 +23,18 @@ function getVerificationCode() {
 		success : function(data) {
 
 			if (data.code == 0) {
-				alert('取得驗證碼成功!');
+				
+				 Dialog.init('取得驗證碼成功!!',{
+				        title : 'Success',
+				        style : 'color:#0094de;font-weight: bold;font-size:10px'
+				    });
 			}
 		},
 		error : function(err) {
-			alert('AJAX獲取數據失敗' + err);
+		    Dialog.init('AJAX動態數據交換失敗',{
+		        title : 'Error',
+		        style : 'color:red;font-weight: bold;font-size:10px'
+		    });
 		}
 	});
 
@@ -83,9 +99,18 @@ function settingPassword() {
 				}
 			});
 		} else {
-			alert('您輸入的帳號兩次不相符合!!');
+			
+			  Dialog.init('您輸入的帳號兩次不相符合!!',{
+			        title : 'Error',
+			        style : 'color:red;font-weight: bold;font-size:10px'
+			    });
 		}
 	} else {
-		alert('登入密碼與確認密碼不得為空值!!');
+
+		
+		  Dialog.init('登入密碼與確認密碼不得為空字符!!',{
+		        title : 'Error',
+		        style : 'color:red;font-weight: bold;font-size:10px'
+		    });
 	}
 }

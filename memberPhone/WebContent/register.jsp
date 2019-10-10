@@ -17,12 +17,13 @@
 <link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/pages.css" />
 <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+<link href="dist/dialog.css" rel="stylesheet">
+<script src="dist/mDialogMin.js"></script>
 </head>
 <body style="background-color: #fff;">
 	<!--header star-->
 	<div class="nheader nheadertwo clearfloat box-s" id="header">
-		<a href="javascript:history.go(-1)" class="fl"> <i
-			class="iconfont icon-fanhui"></i>
+		<a href="login.jsp" class="fl">返回
 		</a>
 		<p class="fl">注册</p>
 		<a href="login.jsp" class="fr"> 登录 </a>

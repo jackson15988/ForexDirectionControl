@@ -1,6 +1,6 @@
 //	取得驗證碼 使用的邏輯區域
 function checkloginInformation() {
-	alert('1515');
+
 	var phoneNumber = $('#phoneNumber').val();
 	var password  = $('#password').val();
 	var user = {
@@ -16,7 +16,10 @@ function checkloginInformation() {
 		success : function(data) {
 
 			if (data.code == 0) {
-				alert('登入成功請稍後!');
+				 Dialog.init('登入成功請稍後!!',{
+				        title : 'Success',
+				        style : 'color:#0094de;font-weight: bold;font-size:10px'
+				    });
 				window.location = "/memberPhone/trader.jsp";
 			}else{
 				alert(data.message);

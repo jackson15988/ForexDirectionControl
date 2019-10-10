@@ -30,5 +30,11 @@ function updataMt4Account() {
 
 
 
+window.onload = function() {
+
+}
+
+
+
 
 

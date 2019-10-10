@@ -38,18 +38,11 @@
 <link rel="stylesheet" type="text/css" href="css/pages.css" />
 <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
 
-<script>
-	window.onload = function() {
-		var phoneNumber = '<%=phoneNumber %>';
-		var mt4Account = '<%=mt4Account %>';
-		
-		if(mt4Account  == "DefaultAccount"){
-			alert('您尚未設定交易帳戶，請先設定在前往戰情中心');
-		}
-		
-		$("#phoneNumber").val(phoneNumber);
-	};
-</script>
+<link href="dist/dialog.css" rel="stylesheet">
+<script src="dist/mDialogMin.js"></script>
+
+
+
 </head>
 <body style="background-color: #fff;">
 	<!--header star-->
@@ -89,5 +82,25 @@
 </html>
 
 
+<script>
+window.onload = function() {
+	var phoneNumber = '<%=phoneNumber %>';
+	var mt4Account = '<%=mt4Account %>';
+	
+	if(mt4Account  == "DefaultAccount"){
+		alert('您尚未設定交易帳戶，請先設定在前往戰情中心');
+	}else{
+	console.log('存在帳號');		
+	$("#mt4account").val(phoneNumber);				
 
+	}
+	
+
+}
+</script>
 <script src="js/rem.js"></script>
+
+
+
+
+

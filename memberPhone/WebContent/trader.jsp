@@ -20,7 +20,7 @@
 			response.sendRedirect("accountCenter.jsp");
 		}else{
 			System.out.print("取得的帳號:" + mt4Account);
-		}
+		}	
 	} else {
 		response.sendRedirect("login.jsp");
 	}
