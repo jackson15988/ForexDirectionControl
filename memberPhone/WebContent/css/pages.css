@@ -1676,9 +1676,24 @@ label {
 	font-size: .4rem;
 	color: #888888;
 }
-.sign .bottom .xia ul li:nth-child(2){
-	margin-top: -.1rem;
+
+#icongoogle{
+		color: #4ebe0a;
 }
+
+
+#iconQQ{
+		color: #24a0b8;
+}
+
+
+#iconzhifubao{
+		color: #1dadf4;
+}
+
+/* .sign .bottom .xia ul li:nth-child(2){ */
+/* 	margin-top: -.1rem; */
+/* } */
 .sign .bottom .xia ul li:nth-child(2) p{
 	margin-top: .1rem;
 }

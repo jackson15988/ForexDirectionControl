@@ -277,6 +277,7 @@ public class GetTraderSettingDAO {
 				admmember.setPassword(result.getString("PASSWORD"));
 				admmember.setPhoneNumber(result.getString("PHONE_NUMBER"));
 				admmember.setMt4Account(result.getString("MT4_ACCOUNT"));
+				admmember.setMt4AccountStyle(result.getString("ACCOUNT_STYLE"));
 			}
 			String json = JSON.toJSONString(admmember);
 			System.out.println(json);
@@ -369,7 +370,7 @@ public class GetTraderSettingDAO {
 			conn = DriverManager.getConnection(datasource);
 			System.out.println("連接成功MySQL");
 			stmt = conn.createStatement();
-			String sql = "	INSERT INTO fo_admsystem (CUSTOMER_ID, MT4_ACCOUNT, MT4_BROKERS) VALUES ('"+157515+"', '"+mt4Account+"', '"+mt4Brokers+"')";
+			String sql = "	INSERT INTO fo_admsystem (CUSTOMER_ID, MT4_ACCOUNT, MT4_BROKERS , PHONE_NUMBER) VALUES ('"+157515+"', '"+mt4Account+"', '"+mt4Brokers+"', '"+phoneNumber+"')";
 	
 			System.out.println("更新AMD系統使用DB语法:" + sql);
 			stmt.executeUpdate(sql);
@@ -386,7 +387,7 @@ public class GetTraderSettingDAO {
 	}
 	
 	
-	public static String updataAdmSystemAccount( String mt4Account , String newAccount)
+	public static String updataAdmSystemAccount( String mt4Account , String newAccount , String phoneNumber)
 			throws SQLException {
 		Connection conn = null;
 		Statement stmt = null;
@@ -400,8 +401,8 @@ public class GetTraderSettingDAO {
 			conn = DriverManager.getConnection(datasource);
 			System.out.println("連接成功MySQL");
 			stmt = conn.createStatement();
-			String sql = "	UPDATE fo_admsystem SET MT4_ACCOUNT = '" + newAccount + "' WHERE MT4_ACCOUNT =  "
-					+ mt4Account;
+			String sql = "	UPDATE fo_admsystem SET MT4_ACCOUNT = '" + newAccount + "' WHERE PHONE_NUMBER =  "
+					+ phoneNumber;
 	
 			System.out.println("更新AMD系統使用DB语法:" + sql);
 			stmt.executeUpdate(sql);

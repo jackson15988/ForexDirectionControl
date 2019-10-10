@@ -45,7 +45,7 @@ public class RegisterAdmSystemMember extends HttpServlet {
 				System.out.println("驗證失敗!!");
 				response.setCharacterEncoding("utf-8");
 				response.setContentType("text/html; charset=utf-8");
-				String str = "{\"code\":\"0\",\"message\":\"verification failed\"}";
+				String str = "{\"code\":\"-1\",\"message\":\"verification failed\"}";
 				out.println(str);
 
 			} else {
@@ -60,7 +60,7 @@ public class RegisterAdmSystemMember extends HttpServlet {
 
 			}
 		} catch (SQLException e) {
-			String str = "{\"code\":\"0\",\"message\":\"驗證失敗!! : " + e + "\"}";
+			String str = "{\"code\":\"-1\",\"message\":\"驗證失敗!! : " + e + "\"}";
 			out.println(str);
 		}
 

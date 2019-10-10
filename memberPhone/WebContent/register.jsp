@@ -18,16 +18,27 @@
 <link rel="stylesheet" type="text/css" href="css/pages.css" />
 <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
 <link href="dist/dialog.css" rel="stylesheet">
+<!-- ICON -->
+<link rel="stylesheet" type="text/css" href="css/icon.css" />
 <script src="dist/mDialogMin.js"></script>
+
 </head>
 <body style="background-color: #fff;">
 	<!--header star-->
+
+	
 	<div class="nheader nheadertwo clearfloat box-s" id="header">
-		<a href="login.jsp" class="fl">返回
-		</a>
-		<p class="fl">注册</p>
-		<a href="login.jsp" class="fr"> 登录 </a>
-	</div>
+			<a href="login.jsp" class="fl">
+			<i class="iconfont iconshangyiye"></i>
+			</a>
+			<p class="fl">
+				會員註冊
+			</p>
+			<a href="login.jsp" class="fr">
+				<i class="iconfont iconzhuce1"></i>
+			</a>
+		</div>
+	
 	<!--header end-->
 
 	<!--register star-->

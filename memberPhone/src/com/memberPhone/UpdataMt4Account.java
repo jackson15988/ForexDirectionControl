@@ -24,6 +24,7 @@ public class UpdataMt4Account extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String code = "";
 		AdmMemberData memberData = new AdmMemberData();
 		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream(), "utf-8"));
 		String line = null;
@@ -40,13 +41,25 @@ public class UpdataMt4Account extends HttpServlet {
 		try {
 			memberData = GetTraderSettingDAO.filterMemberGetAdmMemberList(phoneNumber);
 			String mtA = memberData.getMt4Account();
-			if (mtA.equals("DefaultAccount")) {
-				String code = GetTraderSettingDAO.updatamt4Account(phoneNumber, mt4account, accountStyle);
+			if ("DefaultAccount".equals(mtA)) {
+				code = GetTraderSettingDAO.updatamt4Account(phoneNumber, mt4account, accountStyle);
 				code = GetTraderSettingDAO.inserNewAdmSystemAccount(phoneNumber, mt4account, "3");
 			} else {
 				// 單純的updata 資料 外加再加上 更新list列表
-				String code = GetTraderSettingDAO.updatamt4Account(phoneNumber, mt4account, accountStyle);
-				code = GetTraderSettingDAO.updataAdmSystemAccount(mtA, mt4account);
+				code = GetTraderSettingDAO.updatamt4Account(phoneNumber, mt4account, accountStyle);
+				code = GetTraderSettingDAO.updataAdmSystemAccount(mtA, mt4account , phoneNumber);
+			}
+			
+			
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+			if (code.equals("0")) {
+				String str = "{\"code\":\"0\",\"message\":\"更新成功\"}";
+				out.println(str);
+			} else {
+				out.write("[{\"code\":-1,\"message\":錯誤}]");
+				String str = "{\"code\":\"-1\",\"message\":\"錯誤\"}";
+				out.println(str);
 			}
 			
 			request.getSession().setAttribute("mt4Account", mt4account);

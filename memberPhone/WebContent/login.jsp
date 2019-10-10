@@ -14,7 +14,11 @@
 		<script src="js/hmt.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<link rel="stylesheet" type="text/css" href="css/pages.css" />
-		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/pages.css" />
+		<link rel="stylesheet" type="text/css" href="css/icon.css" />
+<!-- 		 <link rel="stylesheet" href="http://at.alicdn.com/t/font_923612_bsbnso2jta.css"> -->
+
+	
 		<script src="js/login.js"></script>
 		<link href="dist/dialog.css" rel="stylesheet">
 		<script src="dist/mDialogMin.js"></script>
@@ -24,13 +28,13 @@
 		<!--header star-->
 		<div class="nheader nheadertwo clearfloat box-s" id="header">
 			<a href="register.jsp" class="fl">
-			  返回
+			<i class="iconfont iconshangyiye"></i>
 			</a>
 			<p class="fl">
-				登录
+				登入
 			</p>
 			<a href="register.jsp" class="fr">
-				注册
+				<i class="iconfont iconzhuce1"></i>
 			</a>
 		</div>
 		<!--header end-->
@@ -74,16 +78,16 @@
 				<div class="xia clearfloat">
 					<ul>
 						<li class="fl">
-							<i class="iconfont icon-weixin1"></i>
-							<p>微信</p>
+							<i class="iconfont icongoogle" id="icongoogle"></i>
+							<p>谷歌</p>
 						</li>
 						<li class="fl">
-							<i class="iconfont icon-qq1"></i>
+							<i class="iconfont iconQQ" id="iconQQ"></i>
 							<p>QQ</p>
 						</li>
 						<li class="fl">
-							<i class="iconfont icon-weibo"></i>
-							<p>微博</p>
+							<i class="iconfont iconzhifubao"  id="iconzhifubao"></i>
+							<p>支付宝</p>
 						</li>
 					</ul>
 				</div>

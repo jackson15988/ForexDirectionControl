@@ -39,6 +39,7 @@
 <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="js/jquery.SuperSlide.2.1.js" type="text/javascript"></script>
 <script src="js/hmt.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/icon.css" />
 <link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/pages.css" />
 <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
@@ -102,11 +103,13 @@
 <body>
 	<!--header star-->
 	<div class="nheader nheadertwo clearfloat box-s" id="header">
-		<a href="accountCenter.jsp" class="fl"> <i class="fa fa-home fa-fw"></i>
+		<a href="accountCenter.jsp" class="fl"> <i class="iconfont iconkongzhitai"></i>
 
 		</a>
 		<p class="fl">戰情中心</p>
-		<a href="logout" class="fr"> 登出 </a>
+		<a href="logout" class="fr">
+		<i class="iconfont icondengchu"></i>
+		 </a>
 	</div>
 	<!--header end-->
 

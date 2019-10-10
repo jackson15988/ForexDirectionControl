@@ -9,6 +9,8 @@ public class AdmMemberData {
 	String phoneNumber;
 	
 	String mt4Account ;
+	
+	String mt4AccountStyle;
 
 	public String getVerification_code() {
 		return verification_code;
@@ -41,6 +43,17 @@ public class AdmMemberData {
 	public void setMt4Account(String mt4Account) {
 		this.mt4Account = mt4Account;
 	}
+
+	public String getMt4AccountStyle() {
+		return mt4AccountStyle;
+	}
+
+	public void setMt4AccountStyle(String mt4AccountStyle) {
+		this.mt4AccountStyle = mt4AccountStyle;
+	}
+	
+	
+	
 	
 	
 

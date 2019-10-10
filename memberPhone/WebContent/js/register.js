@@ -46,7 +46,16 @@ function registerMember() {
 	var verificationCode = $('#verificationCode').val();
 	// var accountStyle = $('#accountStyle').val();
 	// var mt4account = $('#mt4account').val();
-
+	
+	if(phonenumber == "" || verificationCode == "" ){
+		   Dialog.init('驗證碼與手機號碼不得為空字符串!!',{
+		        title : 'Error',
+		        style : 'color:red;font-weight: bold;font-size:10px'
+		    });
+		   
+		   return;
+	}
+	
 	var user = {
 		"phonenumber" : phonenumber,
 		"verificationCode" : verificationCode
@@ -62,7 +71,18 @@ function registerMember() {
 		success : function(data) {
 
 			if (data.code == 0) {
+				 Dialog.init('驗證成功!!',{
+				        title : 'Success',
+				        style : 'color:#0094de;font-weight: bold;font-size:10px'
+				    });
+				
 				window.location = "/memberPhone/infor.jsp";
+			}else{
+				 Dialog.init('驗證失敗!!',{
+				        title : 'Error',
+				        style : 'color:red;font-weight: bold;font-size:10px'
+				    });
+				
 			}
 		},
 		error : function(err) {
@@ -75,7 +95,7 @@ function registerMember() {
 function settingPassword() {
 	var password = $('#password').val();
 	var checkpassword = $('#checkpassword').val();
-	if (checkpassword != null && password != null) {
+	if (checkpassword != "" && password != "") {
 		if (password == checkpassword) {
 			var user = {
 				"password" : password,
