@@ -232,7 +232,10 @@ public class GetTraderSettingDAO {
 			if (result.next()) {
 				admmember.setVerification_code(result.getString("VERIFICATION_CODE"));
 				admmember.setPassword(result.getString("VERIFICATION_CODE"));
+				admmember.setMt4Account(result.getString("MT4_ACCOUNT"));
 			}
+			System.out.println("我就是不信拿不到: " + result.getString("MT4_ACCOUNT"));
+			
 			String json = JSON.toJSONString(admmember);
 			System.out.println(json);
 

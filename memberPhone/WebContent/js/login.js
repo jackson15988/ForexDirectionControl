@@ -28,7 +28,7 @@ function checkloginInformation() {
 				        title : 'Error',
 				        style : 'color:red;font-weight: bold;font-size:10px'
 				    });
-				window.location = "/memberPhone/trader.jsp";
+				 
 			}
 		},
 		error : function(err) {
