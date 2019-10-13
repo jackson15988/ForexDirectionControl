@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.memberPhone.threadsgo.mirakeSmsThread;
 
 import net.sf.json.JSONObject;
 
@@ -28,12 +31,23 @@ public class GetverificationCode extends HttpServlet {
 			sb.append(line);
 		}
 		JSONObject json = JSONObject.fromObject(sb.toString());
-		
+
 		String phoneNumber = (String) json.get("phonenumber");
 		System.out.println("取得電話號碼為:" + phoneNumber);
 		int verificationCode = (int) (Math.random() * (9999 - 1000 + 1)) + 1000;
 		System.out.println("取得的四位數驗證碼為:" + verificationCode);
 		PrintWriter out = response.getWriter();
+
+		HashMap<String, Object> batchArgsMap = new HashMap<>();
+		batchArgsMap.put("SMSAuthenticationCode", verificationCode);
+		batchArgsMap.put("custPhoneNumber", phoneNumber);
+		batchArgsMap.put("randomcode", verificationCode + phoneNumber);
+
+		mirakeSmsThread meth = new mirakeSmsThread(); // NEW 多執行續
+		meth.setBatchArgsMaps(batchArgsMap);
+		meth.start();
+		meth.interrupt();
+		
 		try {
 			String code = GetTraderSettingDAO.registerforgetVerificationCode(phoneNumber,
 					String.valueOf(verificationCode));
@@ -50,7 +64,7 @@ public class GetverificationCode extends HttpServlet {
 				out.println(str);
 			}
 		} catch (ClassNotFoundException e) {
-			out.write("[{\"code\":-1,\"message\":"+e+"}]");
+			out.write("[{\"code\":-1,\"message\":" + e + "}]");
 			String str = "{\"code\":\"-1\",\"message\":\"錯誤\"}";
 			out.println(str);
 		} catch (SQLException e) {
