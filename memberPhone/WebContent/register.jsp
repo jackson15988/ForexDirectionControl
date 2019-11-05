@@ -22,6 +22,7 @@
 <link rel="stylesheet" type="text/css" href="css/icon.css" />
 <script src="dist/mDialogMin.js"></script>
 
+
 </head>
 <body style="background-color: #fff;">
 	<!--header star-->
@@ -75,8 +76,9 @@
 				<li class="box-s">
 				<input type="text" name="" id="phoneNumber" value="" class="mingzi" placeholder="輸入手机号" /></li>
 				<li class="box-s">
-				<input type="text" name="" id="verificationCode" value="" class="mingzi yzm fl" placeholder="输入验证码" /> 
-				<input type="submit" name="" id="" value="获取验证码" class="huoqu fr" onclick="getVerificationCode();"/></li>
+				<input type="text" name="" id="verificationCode" value="" class="mingzi yzm fl" placeholder="输入验证码" />
+		
+				<input type="button" name="" id="btn" value="获取验证码" class="huoqu fr" onclick="getVerificationCode();"/></li>
 <!-- 				<li class="box-s"> -->
 <!-- 					<p> -->
 <!-- 						帳戶種類<select  id="accountStyle" style="width: 60%"> -->

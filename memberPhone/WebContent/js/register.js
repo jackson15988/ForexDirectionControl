@@ -1,3 +1,6 @@
+document.write("<script language='javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' ></script>");
+
+
 //	取得驗證碼 使用的邏輯區域
 function getVerificationCode() {
 
@@ -28,7 +31,11 @@ function getVerificationCode() {
 				        title : 'Success',
 				        style : 'color:#0094de;font-weight: bold;font-size:10px'
 				    });
+				 
+			     
 			}
+			   $.cookie("total", 300);
+		        timekeeping();
 		},
 		error : function(err) {
 		    Dialog.init('AJAX動態數據交換失敗',{
@@ -91,6 +98,46 @@ function registerMember() {
 	});
 
 }
+
+function timekeeping() {
+    //把按鈕設置為不可以點擊
+    $("#btn").attr("disabled", true);
+    var interval = setInterval(function() { //每秒讀取一次cookie
+        //從cookie 中讀取剩余倒計時
+        total = $.cookie("total");
+        //存入Cookie 防止頁面刷新
+        //在發送按鈕顯示剩余倒計時
+        $("#btn").val("請等待" + total + "秒");
+        //把剩余總倒計時減掉1
+        total--;
+        if (total == 0) { //剩余倒計時為零，則顯示 重新發送，可點擊
+            //清除定時器
+            clearInterval(interval);
+            //刪除cookie
+            total = $.cookie("total", total, {
+                expires: -1
+            });
+            //顯示重新發送
+            $("#btn").val("重新發送");
+            //把發送按鈕設置為可點擊
+            $("#btn").attr("disabled", false);
+        } else { //剩余倒計時不為零
+            //重新寫入總倒計時
+            $.cookie("total", total);
+        }
+    }, 1000);
+}
+
+
+
+
+    $(function() {
+        if ($.cookie("total") != undefined && $.cookie("total") != "NaN" && $.cookie("total") != "null") {
+            timekeeping();
+        } else {
+            $("#btn").attr("disabled", false);
+        }
+    }); 
 
 function settingPassword() {
 	var password = $('#password').val();
